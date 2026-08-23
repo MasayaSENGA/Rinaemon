@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Rinaemon</string>
+    <string name="notification_channel_name">音声キャプチャ実行中</string>
+    <string name="notification_title">ピッチシフト再生中</string>
+    <string name="notification_text">他アプリの再生音を変換しています</string>
+</resources>
