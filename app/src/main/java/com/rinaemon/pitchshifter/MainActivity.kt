@@ -30,7 +30,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.core.content.ContextCompat
 import com.rinaemon.pitchshifter.ui.theme.PitchShifterTheme
-import kotlin.math.roundToInt
 
 class MainActivity : ComponentActivity() {
 
@@ -132,12 +131,20 @@ fun PitchScreen(onStart: () -> Unit, onStop: () -> Unit) {
         )
         Text(text = "状態: $status", modifier = Modifier.padding(top = 8.dp, bottom = 24.dp))
 
-        Text(text = "ピッチ: ${if (semitones >= 0) "+" else ""}${semitones.roundToInt()} 半音")
+        Text(
+            text = "ピッチ: ${
+                when {
+                    semitones > 0f -> "+"
+                    semitones < 0f -> "-"
+                    else -> ""
+                }
+            }${"%.1f".format(kotlin.math.abs(semitones))}"
+        )
         Slider(
             value = semitones,
             onValueChange = { PitchController.semitones.value = it },
             valueRange = -12f..12f,
-            steps = 23,
+            steps = 47,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
