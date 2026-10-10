@@ -55,3 +55,9 @@ app/src/main/java/com/rinaemon/pitchshifter/
   レイテンシとCPU負荷も増えます。
 - キャプチャ対象は `USAGE_MEDIA` / `USAGE_GAME` / `USAGE_UNKNOWN` に限定しています
   （`CaptureService.startCapture` 内の `addMatchingUsage` 呼び出し）。
+
+## ライセンス
+
+MIT License です。詳しくは [`LICENSE`](LICENSE) を参照してください。
+
+`dsp/FFT.kt` と `dsp/PitchShifter.kt` は Stephan M. Bernsee 氏の smbFft / smbPitchShift を移植したもので、Wide Open License (WOL) に従います。著作権表示とライセンス文は各ファイルの冒頭にあります。
